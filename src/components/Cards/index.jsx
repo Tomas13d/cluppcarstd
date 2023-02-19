@@ -4,7 +4,7 @@ import "./cards.css";
 
 function Cards({car}) {
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card className="custom-cards">
       <Card.Body>
         <Card.Title>{car.model}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{car.brand}</Card.Subtitle>

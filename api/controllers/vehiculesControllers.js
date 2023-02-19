@@ -27,7 +27,7 @@ export const getActiveVehicles = async (req, res) => {
         (doc) => !doc.data().deleted && result.push(doc.data())
       );
     });
-    res.status(200).json(result);
+    res.status(200).send(result);
   } catch (error) {
     console.error(error);
     res.status(500).send("Server error");
