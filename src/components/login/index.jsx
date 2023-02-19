@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
@@ -47,6 +48,9 @@ function Login() {
           <Button variant="primary" type="submit">
            Log In
           </Button>
+          <div className="w-100 text-center bottom-text">
+            You dont have an account? <Link to="/signup">Sign Up</Link>
+          </div>
         </Form>
       </Container>
     </Container>
