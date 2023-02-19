@@ -1,0 +1,13 @@
+.background-container .shape3 {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+.shape3 {
+    background: linear-gradient(to right, #7e2bb8, #096aa6);
+    left: 50px;
+    top: 200px;
+    transform: translate(0, 20);
+  }

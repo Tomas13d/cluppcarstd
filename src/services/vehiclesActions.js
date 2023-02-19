@@ -16,3 +16,21 @@ export const getActiveVehicles = async (token) => {
         console.log(`Get Active Vehicle Error: ${err}`);
     }
 }
+
+
+export const addNewVehicle = async ({token, values}) => {
+  try{
+    console.log("token" , token);
+      const payloadHeader = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const newCar = await axios.post(API_URL+"/vehicles", values, payloadHeader)
+        console.log("response ->", newCar)
+      return newCar
+  } catch (err){
+      console.log(`Error Adding New Car: ${err}`);
+  }
+}

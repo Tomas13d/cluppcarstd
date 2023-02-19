@@ -4,12 +4,14 @@ import Login from "./components/Login";
 import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./components/Home";
 import "./App.css";
+import AddCarForm from "./components/AddCarForm";
 
 function App() {
   return (
     <AuthProvider>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/addVehicle" element={<AddCarForm />} />
         <Route path="/signup" element={<SignIn />} />
         <Route path="/login" element={<Login />} />
       </Routes>

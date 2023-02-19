@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import auth from "../../config/firebase";
 import { useAuth } from "../../contexts/AuthContext";
 import "./navbar.css";
@@ -38,6 +39,9 @@ function NavbarApp() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
+            <Nav.Link className="text-light logout-button">
+              <Link to="/addVehicle">Add Vehicle</Link>
+            </Nav.Link>
             <Nav.Link className="text-light logout-button" href="#action1">
               Logout
             </Nav.Link>
