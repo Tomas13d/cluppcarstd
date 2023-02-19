@@ -28,7 +28,7 @@ function SignIn() {
         <circle className="shape1"></circle>
       </div>
       <Container className="register-form-cont col-sm-10 col-md-8 col-lg-8 col-xl-6">
-        <h2 className="form-title">Register</h2>
+        <h2 className="form-title">Sign Up</h2>
         <Form>
           <Form.Group className="mb-3" controlId="Email">
             <Form.Label>Email address</Form.Label>
