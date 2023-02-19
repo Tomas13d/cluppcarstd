@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Alert, Button, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { useAuth } from "../../contexts/AuthContext";
 import "./SignIn.css";
@@ -14,6 +14,7 @@ function SignIn() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { singup } = useAuth();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -33,10 +34,10 @@ function SignIn() {
           buttons: false,
           timer: 1000
         });
-
+        navigate("/login");
     } catch (err) {
       swal({
-        text: "Faild to Sign Up",
+        text: "Failed to Sign Up",
         icon: "error",
       });
     }
