@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express"
+import VehiculesRouter from "./vehiclesRoutes.js"
 const router = express.Router();
-const vehicles = require("./vehiclesRoutes");
 
-router.use("/vehicles", vehicles);
-module.exports = router;
+router.use("/vehicles", VehiculesRouter);
+export default router;

@@ -1,32 +1,12 @@
 
 import { useEffect } from "react";
-import { Button, Container, Form, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Container, Form, Nav, Navbar} from "react-bootstrap";
 import auth from "../../config/firebase";
 import "./navbar.css";
 
 function NavbarApp() {
  
-useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const user = auth.currentUser;
-        const token = user && (await user.getIdToken());
 
-        const payloadHeader = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        const res = await fetch("http://localhost:3001", payloadHeader);
-        console.log(await res.text());
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    fetchData();
-}, []);
 
   return (
     <Navbar className="custom-navbar-style" expand="lg">

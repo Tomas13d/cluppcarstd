@@ -1,7 +1,6 @@
-const admin = require("firebase-admin");
-const db = admin.firestore();
+import { db }from "../server/config/firebase-config.js"
 
-module.exports.addNewVehicle = async (req, res) => {
+export const addNewVehicle = async (req, res) => {
   try {
     const { brand, model, year } = req.body;
     const newCar = await db.collection("vehicles").add({
@@ -19,7 +18,7 @@ module.exports.addNewVehicle = async (req, res) => {
 };
 
 // get active vehicles (deleted = false)
-module.exports.getActiveVehicles = async (req, res) => {
+export const getActiveVehicles = async (req, res) => {
   try {
     const allCars = db.collection("vehicles");
     const result = [];
@@ -35,7 +34,7 @@ module.exports.getActiveVehicles = async (req, res) => {
   }
 };
 
-module.exports.getVehicleById = async (req, res) => {
+export const getVehicleById = async (req, res) => {
   try {
     const car = await db.collection("vehicles").doc(req.params.id).get();
     if (!car.exists) {
@@ -49,7 +48,7 @@ module.exports.getVehicleById = async (req, res) => {
   }
 };
 
-module.exports.updateDeletedVehicle = async (req, res) => {
+export const updateDeletedVehicle = async (req, res) => {
   try {
     await db.collection("vehicles").doc(req.params.id).update({
       deleted: !req.body.deleted,
@@ -61,7 +60,7 @@ module.exports.updateDeletedVehicle = async (req, res) => {
   }
 };
 
-module.exports.searchVehicle = async (req, res) => {
+export const searchVehicle = async (req, res) => {
   try {
     const text = req.params.text.toLowerCase();
     const carsRef = db.collection("vehicles");
