@@ -56,15 +56,16 @@ function Home() {
 
   const handleDelete = async (id) => {
     try {
-      await deleteVehicle({ token, id });
+      
       swal({
         title: "Are you sure?",
         text: "Once deleted, you will not be able to recover this vehicle!",
         icon: "warning",
         buttons: true,
         dangerMode: true,
-      }).then((willDelete) => {
+      }).then(async (willDelete) => {
         if (willDelete) {
+          await deleteVehicle({ token, id });
           swal("Poof! Your vehicle has been deleted!", {
             icon: "success",
           });

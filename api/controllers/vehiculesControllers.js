@@ -73,12 +73,13 @@ export const searchVehicle = async (req, res) => {
     await carsRef.get().then((snapshot) => {
       snapshot.forEach((doc) => {
         const car = doc.data();
+        const doctRef = doc.ref.path.split("vehicles/")[1]
         if (
           car.brand.toLowerCase().includes(text) ||
           car.model.toLowerCase().includes(text) ||
           car.year.toLowerCase().toString().includes(text)
         ) {
-          cars.push(car);
+          cars.push({...car,id: doctRef});
         }
       });
     });
@@ -89,3 +90,6 @@ export const searchVehicle = async (req, res) => {
     return null;
   }
 };
+
+
+    
