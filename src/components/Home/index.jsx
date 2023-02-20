@@ -52,6 +52,7 @@ function Home() {
     } catch (err) {
       setError(`Error: ${err}`);
     }
+    setFlag(!flag)
   };
 
   const handleDelete = async (id) => {
@@ -77,7 +78,6 @@ function Home() {
     }
   };
 
-  
 
   return (
     <>
