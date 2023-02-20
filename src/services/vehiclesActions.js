@@ -45,7 +45,7 @@ export const searchVehicle = async ({search, token}) => {
         const newCar = await axios.get(API_URL+`/vehicles/search/${search}`, payloadHeader)
       return newCar.data
   } catch (err){
-      console.log(`Error Adding New Car: ${err}`);
+      console.log(`Error searching Car: ${err}`);
   }
 }
 
@@ -60,6 +60,21 @@ export const deleteVehicle = async ({id, token}) => {
         const newCar = await axios.put(API_URL+`/vehicles/${id}`, {},payloadHeader)
       return newCar.data
   } catch (err){
-      console.log(`Error Adding New Car: ${err}`);
+      console.log(`Error Deleting Car: ${err}`);
+  }
+}
+
+export const getSingleVehicle = async ({id, token}) => {
+  try{
+      const payloadHeader = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const newCar = await axios.get(API_URL+`/vehicles/${id}`, payloadHeader)
+      return newCar.data
+  } catch (err){
+      console.log(`Error: ${err}`);
   }
 }

@@ -6,6 +6,7 @@
 }
 .id-card-ref{
     font-size: 14px;
+    text-decoration: underline;
 }
 .trash-cont{
     display: flex;
@@ -23,3 +24,4 @@
 .trash-cont:hover{
    cursor: pointer;
 }
+
