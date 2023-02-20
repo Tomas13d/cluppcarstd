@@ -16,6 +16,11 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(VerifyToken);
 
+const PORT = process.env.PORT || 8080;
+
 app.use("/", router); 
 
-export const expressApi = functions.https.onRequest(app);
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});

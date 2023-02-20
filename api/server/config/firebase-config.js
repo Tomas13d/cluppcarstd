@@ -7,6 +7,7 @@ import serviceAccountKey from "./serviceAccountKey.json" assert { type: "json" }
 
 const app = initializeApp({
   credential: cert(serviceAccountKey),
+  databaseURL: 'https://cluppcarstd-9fc72-default-rtdb.firebaseio.com'
 });
 
 

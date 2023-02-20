@@ -1,10 +1,9 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import SignIn from "./components/SignIn";
 import Login from "./components/Login";
 import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./components/Home";
 import "./App.css";
-import { useEffect } from "react";
 
 function App() {
  
