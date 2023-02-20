@@ -7,14 +7,11 @@ import "./App.css";
 import { useEffect } from "react";
 
 function App() {
-  const navigate = useNavigate()
-  useEffect(() => {
-    const token  = window.localStorage.getItem('token')
-    if (!token) navigate("/login");
-  }, []);
+ 
   return (
     <AuthProvider>
       <Routes>
+      <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignIn />} />
         <Route path="/login" element={<Login />} />
         <Route path="/view/:content" element={<Home />} />
