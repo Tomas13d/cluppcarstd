@@ -31,7 +31,7 @@ function Login() {
           buttons: false,
           timer: 1000
         });
-        navigate("/");
+        navigate("/view/all");
     } catch (err) {
       swal({
         text: "Failed to Log in",

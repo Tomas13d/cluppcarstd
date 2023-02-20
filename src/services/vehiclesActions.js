@@ -48,3 +48,18 @@ export const searchVehicle = async ({search, token}) => {
       console.log(`Error Adding New Car: ${err}`);
   }
 }
+
+export const deleteVehicle = async ({id, token}) => {
+  try{
+      const payloadHeader = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const newCar = await axios.put(API_URL+`/vehicles/${id}`, {},payloadHeader)
+      return newCar.data
+  } catch (err){
+      console.log(`Error Adding New Car: ${err}`);
+  }
+}

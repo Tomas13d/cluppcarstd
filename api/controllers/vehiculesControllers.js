@@ -24,7 +24,12 @@ export const getActiveVehicles = async (req, res) => {
     const result = [];
     await allCars.get().then((querySnapshot) => {
       querySnapshot.docs.forEach(
-        (doc) => !doc.data().deleted && result.push(doc.data())
+        (doc) => {
+          if(!doc.data().deleted){
+            const doctRef = doc.ref.path.split("vehicles/")[1]
+            result.push({...doc.data(), id: doctRef})
+          } 
+        }
       );
     });
     res.status(200).send(result);
