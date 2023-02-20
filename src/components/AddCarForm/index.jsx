@@ -4,7 +4,7 @@ import swal from "sweetalert";
 import { addNewVehicle } from "../../services/vehiclesActions";
 import "./addCarForm.css";
 
-function AddCarForm() {
+function AddCarForm({token}) {
   const [values, setValues] = useState({
     brand: "",
     model: "",
@@ -12,11 +12,6 @@ function AddCarForm() {
   });
   const [errorHandler, setErrorHandler] = useState("");
   const [loading, setLoading] = useState(false);
-  const [token, setToken] = useState("");
-
-  useEffect(() => {
-    setToken(window.localStorage.getItem("token"));
-  }, []);
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });

@@ -20,7 +20,6 @@ export const getActiveVehicles = async (token) => {
 
 export const addNewVehicle = async ({token, values}) => {
   try{
-    console.log("token" , token);
       const payloadHeader = {
           headers: {
             "Content-Type": "application/json",
@@ -28,8 +27,23 @@ export const addNewVehicle = async ({token, values}) => {
           },
         };
         const newCar = await axios.post(API_URL+"/vehicles", values, payloadHeader)
-        console.log("response ->", newCar)
       return newCar
+  } catch (err){
+      console.log(`Error Adding New Car: ${err}`);
+  }
+}
+
+
+export const searchVehicle = async ({search, token}) => {
+  try{
+      const payloadHeader = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const newCar = await axios.get(API_URL+`/vehicles/search/${search}`, payloadHeader)
+      return newCar.data
   } catch (err){
       console.log(`Error Adding New Car: ${err}`);
   }

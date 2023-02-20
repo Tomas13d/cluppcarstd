@@ -2,9 +2,9 @@
 import { Card } from "react-bootstrap";
 import "./cards.css";
 
-function Cards({car}) {
+function Cards({car, i}) {
   return (
-    <Card className="custom-cards">
+    <Card className="custom-cards" key={i}>
       <Card.Body>
         <Card.Title>{car.model}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{car.brand}</Card.Subtitle>
