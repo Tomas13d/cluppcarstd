@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../config/firebase";
 import { useAuth } from "../../contexts/AuthContext";
 import "./navbar.css";
 
-function NavbarApp({setSearch, handleChangeSearch, search, handleSearchSubmit}) {
-  const { currentUser } = useAuth();
+function NavbarApp({ handleChangeSearch, search, handleSearchSubmit}) {
+  const { currentUser, logout } = useAuth();
+  const navigate = useNavigate()
 
   useEffect(() => {
     const generateToken = async () => {
@@ -16,6 +17,12 @@ function NavbarApp({setSearch, handleChangeSearch, search, handleSearchSubmit}) 
     };
     generateToken();
   }, [currentUser]);
+
+
+  const hanleLogout = () => {
+    logout()
+    navigate("/login")
+  }
 
   return (
     <Navbar className="custom-navbar-style" expand="lg">
@@ -46,7 +53,7 @@ function NavbarApp({setSearch, handleChangeSearch, search, handleSearchSubmit}) 
             <Nav.Link className="text-light logout-button">
               <Link to="/view/addVehicle">Add Vehicle</Link>
             </Nav.Link>
-            <Nav.Link className="text-light logout-button" href="#action1">
+            <Nav.Link className="text-light logout-button" href="#action1" onClick={hanleLogout}>
               Logout
             </Nav.Link>
           </Nav>

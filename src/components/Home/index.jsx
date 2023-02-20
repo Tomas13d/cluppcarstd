@@ -81,7 +81,6 @@ function Home() {
   return (
     <>
       <NavbarApp
-        setSearch={setSearch}
         handleChangeSearch={handleChangeSearch}
         search={search}
         handleSearchSubmit={handleSearchSubmit}
